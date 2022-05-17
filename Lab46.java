@@ -5,8 +5,8 @@ public class Lab46 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		final int m = 4;
-		final int n = 3;
+		final int m = 3;
+		final int n = 4;
 		
 		System.out.println("Vvedite dannie matrici: ");
 		
@@ -50,30 +50,41 @@ public class Lab46 {
 		}
 		
 		int sedlo;
-		int sedlo_i=0;
-		int sedlo_j=0;
+		int[] arr = new int[m*n*2];
+		int k=0;
+		int length=0;
+		
 		
 		for(i=0;i<m;i++)
 		{
 			sedlo=Integer.MAX_VALUE;
 			for(j=0;j<n;j++)
 				if(matrix[i][j]<sedlo)
+					sedlo=matrix[i][j];
+				
+			for(j=0;j<n;j++)
+				if(matrix[i][j]==sedlo)
 				{
 					sedlo=matrix[i][j];
-					sedlo_i=i;
-					sedlo_j=j;
+					arr[k]=i;  
+					arr[k+1]=j;
+					k+=2;
+					length+=2;
 				}
-			
+		}
+		for(k=0;k<length;k+=2)
+		{
 			for(i=0;i<m;i++)
-				if(matrix[sedlo_i][sedlo_j]<matrix[i][sedlo_j])
+				if(matrix[arr[k]][arr[k+1]]<matrix[i][arr[k+1]])
 					break;
 			
-				if(i==m)
-				{
-				System.out.println("Sedlo i: "+ sedlo_i);
-				System.out.println("Sedlo j: "+ sedlo_j);
-				}
-		}	
+			if(i==m)
+			{
+				System.out.println("Sedlo i: "+ arr[k]);
+				System.out.println("Sedlo j: "+ arr[k+1]);
+			}
+		}
+		
 		
 						
 	}
