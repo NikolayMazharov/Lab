@@ -36,7 +36,7 @@ public class Main {
     // тип возвращаемого значения void. так как она массив не изменяет. кроме єтого, роскольку в данной ф-ции
     // массив меняться не будет, он может посілаться в ф-цию как final параметр. почитай про єто!
 	{
-		System.out.print("Massiv " + v);
+		System.out.print("Massiv " + v); // test comment
 	//	int i;
 		for (int i=0; i<arr.length; i++) // можно инициализировать сразу в форе
 			System.out.print(" "+arr[i]);
